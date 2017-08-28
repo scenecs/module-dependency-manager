@@ -1,0 +1,28 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "experimentalDecorators": true,
+        "sourceMap": true,
+        "listFiles": false,
+        "traceResolution": false,
+        "declaration": false,
+        "outDir": "./dist/",
+        "rootDir": "src",
+        "target": "es2016",
+        "diagnostics": false,
+        "forceConsistentCasingInFileNames": true
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "bin",
+        "node_modules",
+        "test/**/*",
+	    "**/*.spec.ts"
+    ]
+}

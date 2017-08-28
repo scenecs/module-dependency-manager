@@ -1,0 +1,53 @@
+{
+  "name": "module-dependency-manager",
+  "version": "1.0.0-dev",
+  "description": "Managing modules and their dependencies depending on their versions.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "TS & SCENECS",
+  "contributors": [
+    {
+      "name": "SCAPHARE",
+      "email": "<scaphare@query4u.de>"
+    },
+    {
+      "name": "SCENECS",
+      "email": "<scenecs@t-online.de>"
+    }
+  ],
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scenecs/module-dependency-manager.git"
+  },
+  "engines": {
+    "node": ">=6.11.2"
+  },
+  "scripts": {
+    "not_implemented": "echo -e '\\n\\033[1m\\033[0;31mNOT IMPLEMENTED\\033[0m\\n\\n'",
+    "test": "npm run test:lint 2>&1 ; npm run test:coverage 2>&1",
+    "test:dev": "npm run test:lint:dev 2>&1 ; npm run test:unit:dev 2>&1",
+    "test:lint": "npm run not_implemented",
+    "test:lint:xml": "npm run not_implemented",
+    "test:lint:dev": "npm run not_implemented",
+    "test:unit": "npm run not_implemented",
+    "test:unit:xml": "npm run not_implemented",
+    "test:unit:dev": "npm run not_implemented",
+    "test:coverage": "npm run not_implemented",
+    "test:coverage:html": "npm run not_implemented",
+    "test:coverage:xml": "npm run not_implemented",
+    "doc": "typedoc --mode file --excludeExternals --includeDeclarations --out ./doc/ ./src/",
+    "doc:dev": "npm run not_implemented",
+    "doc:markdown": "typedoc --mode file --excludeExternals --includeDeclarations --theme markdown --mdOutFile documentation.md --out ./doc/ ./src/"
+  },
+  "dependencies": {
+    "commander": "~2.11.0",
+    "unzip": "~0.1.11"
+  },
+  "devDependencies": {
+    "typescript": "~2.4.2",
+    "@types/node": "~8.0.19",
+    "typedoc": "~0.8.0",
+    "typedoc-plugin-markdown": "~1.0.6"
+  }
+}
