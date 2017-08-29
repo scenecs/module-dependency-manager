@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+
+const process = require('process');
+const { createReadStream } = require('fs');
+const path = require('path');
+const { Extract, Parse } = require('unzip');
+const program = require('commander');
+const pkg = require('../package.json');
+const { Transform } = require('stream');
+
+let moduleFile;
+
+console.log('HIER...');
+
+program
+    .version(pkg.version || 'dev')
+    .usage('[options] <module-file>')
+    .parse(process.argv);
+
+process.on('uncaughtException', (error) => {
+    process.stderr.write(`${error.message}\n`);
+    process.exit(1);
+});
+
+moduleFile = (program.args).pop();
+
+if (!moduleFile) {
+    throw new Error("No module file found!");
+}
+
+
+createReadStream(path.resolve(moduleFile))
+    .pipe(Parse())
+    .on('entry', function (entry) {
+        const fileName = entry.path;
+        const type = entry.type; // 'Directory' or 'File'
+        const size = entry.size;
+
+        console.log(`fileName: ${fileName}, type: ${type}, size: ${size}`);
+
+        entry.autodrain();
+      });
