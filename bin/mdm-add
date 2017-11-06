@@ -10,8 +10,6 @@ const { Transform } = require('stream');
 
 let moduleFile;
 
-console.log('HIER...');
-
 program
     .version(pkg.version || 'dev')
     .usage('[options] <module-file>')
@@ -39,4 +37,7 @@ createReadStream(path.resolve(moduleFile))
         console.log(`fileName: ${fileName}, type: ${type}, size: ${size}`);
 
         entry.autodrain();
-      });
+      })
+    .on('error', function (error) {
+        console.log('HOHO: ', error.message);
+    });
